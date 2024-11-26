@@ -7,6 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+// Use the PORT environment variable provided by Render, or default to 3000
+const PORT = process.env.PORT || 3000;
+
 app.use(express.static('client'));
 
 const FPS = 60;
@@ -36,6 +39,6 @@ setInterval(() => {
     io.emit('gameState', gameState);
 }, 1000 / FPS);
 
-server.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
