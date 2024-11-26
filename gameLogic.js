@@ -40,6 +40,10 @@ function addPlayer(id, state) {
     };
 }
 
+function removePlayer(id, state) {
+    delete state.players[id];
+}
+
 // Update player movement based on WASD keys
 function updatePlayer(id, movement, state) {
     const player = state.players[id];

@@ -10,7 +10,7 @@ const io = new Server(server);
 // Use the PORT environment variable provided by Render, or default to 3000
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static('client'));
+app.use(express.static(__dirname));
 
 const FPS = 60;
 const gameState = gameLogic.initGame();
